@@ -73,6 +73,7 @@
     "validate-commit-msg": "^2.14.0",
     "vue-loader": "^17.2.2",
     "vue-style-loader": "^4.1.2",
+    "vue-eslint-parser": "8.2.0",
     "webpack": "^5.88.1",
     "webpack-dev-middleware": "^6.1.1",
     "webpack-hot-middleware": "^2.25.4",
