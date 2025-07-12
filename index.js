@@ -5,8 +5,6 @@ const app = new Koa();
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || '0.0.0.0';
 
-let a =1
-
 app.use(async (ctx) => {
   ctx.body = 'Hello World';
 });
