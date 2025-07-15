@@ -4,11 +4,10 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
-    "build": "webpack --mode production",
-    "lint": "eslint --quiet --ext js,vue .",
-    "test": "mocha --exit"
+    "dev": "set _ENV='local' && nodemon ./index.js",
+    "beta": "set _ENV='beta' && node ./index.js",
+    "prod": "set _ENV='prod' && node ./index.js",
+    "lint": "eslint --quiet --ext js,vue ."
   },
   "dependencies": {
     "@babel/core": "^7.24.0",
