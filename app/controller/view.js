@@ -2,7 +2,9 @@ module.exports = (app) => {
 
   return class ViewController {
     async renderPage(ctx) {
-      await ctx.render(`output/entry.${ctx.params.page}`);
+      await ctx.render(`dist/entry.${ctx.params.page}`,{
+        name:app.options?.name
+      });
     }
   }
 };
