@@ -1,6 +1,18 @@
 const webpack = require("webpack");
-
+const fs = require("fs");
+const path = require("path");
 const webBaseConfig = require("./config/webpack.base.js");
+
+// 删除 app/public/dist 目录
+
+function removeDist() {
+  const distPath = path.resolve(process.cwd(), "./app/public/dist");
+  if (fs.existsSync(distPath)) {
+    fs.rmSync(distPath, { recursive: true });
+  }
+}
+
+removeDist()
 
 webpack(webBaseConfig, (err, stats) => {
   if (err) {

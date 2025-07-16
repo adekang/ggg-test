@@ -3,6 +3,8 @@
 </template>
 
 <script setup>
+import utils from '$common/utils'
+console.log(utils.a);
 
 </script>
 
