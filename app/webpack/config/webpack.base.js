@@ -99,10 +99,11 @@ module.exports = {
     }),
     // 定义全局变量
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production"),
+     'process.env':{
       __VUE_OPTIONS_API__: "true",
       __VUE_PROD_DEVTOOLS__: "false", // 生产环境下不支持vue-devtools
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false", // 生产环境下不支持hydration
+     }
     }),
     // 构造最终渲染的页面
     ...htmlWebpackPluginList,
