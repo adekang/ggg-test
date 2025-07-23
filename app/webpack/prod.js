@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const fs = require("fs");
 const path = require("path");
-const webBaseConfig = require("./config/webpack.base.js");
+const webProdConfig = require("./config/webpack.prod.js");
 
 // 删除 app/public/dist 目录
 
@@ -12,9 +12,9 @@ function removeDist() {
   }
 }
 
-removeDist()
+removeDist();
 
-webpack(webBaseConfig, (err, stats) => {
+webpack(webProdConfig, (err, stats) => {
   if (err) {
     console.log(err);
     return;

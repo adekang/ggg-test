@@ -80,12 +80,7 @@ module.exports = {
     ],
   },
   // 产物输出路径
-  output: {
-    path: path.join(process.cwd(), "./app/public/dist/prod"),
-    filename: "js/[name]_[chunkhash:8].bundle.js",
-    publicPath: "/dist/prod",
-    crossOriginLoading: "anonymous",
-  },
+  output: {},
   // 模块解析的具体行为
   resolve: {
     extensions: [".js", ".vue", ".less", ".css"],
@@ -132,7 +127,6 @@ module.exports = {
           priority: 20, // 优先级
           enforce: true, // 强制使用
           reuseExistingChunk: true, // 复用已有的chunk
-
         },
         common: {
           name: "common",
@@ -143,5 +137,7 @@ module.exports = {
         },
       },
     },
+    // 将webpack 运行时生成的代码打包到 runtime.js
+    runtimeChunk: true
   },
 };
