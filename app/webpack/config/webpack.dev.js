@@ -30,7 +30,7 @@ const webpackConfig = merge.smart(baseConfig, {
     // 指定开发环境模式
     mode: 'development',
     // source-map 开发工具，呈现代码的映射关系 便于在开发过程中调试代码
-    devtool: 'eval-cheap-module-source-map',
+    devtool: 'cheap-module-source-map',
     // 生产环境的 output 配置
     output: {
         filename: 'js/[name]_[chunkhash:8].bundle.js',
