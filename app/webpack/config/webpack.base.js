@@ -55,16 +55,18 @@ module.exports = {
           loader: "babel-loader",
         },
       },
-      {
-        test: /\.(png|jpe?g|gif)(\?.+)?$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 300,
-            esModule: false,
+         {
+          test: /\.(png|jpe?g|gif)$/i,
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 300 // 小于 300 字节转 base64
+            }
           },
+          generator: {
+            filename: '[name].[hash:7][ext]'
+          }
         },
-      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
@@ -73,10 +75,13 @@ module.exports = {
         test: /\.less$/,
         use: ["style-loader", "css-loader", "less-loader"],
       },
-      {
-        test: /\.(eot|woff|woff2|svg|ttf)(\?\S*)?$/,
-        use: ["file-loader"],
-      },
+        {
+          test: /\.(eot|woff|woff2|ttf|svg|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: '[name].[hash:7][ext]'
+          }
+        }
     ],
   },
   // 产物输出路径
@@ -101,11 +106,10 @@ module.exports = {
     }),
     // 定义全局变量
     new webpack.DefinePlugin({
-     'process.env':{
-      __VUE_OPTIONS_API__: "true",
-      __VUE_PROD_DEVTOOLS__: "false", // 生产环境下不支持vue-devtools
-      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false", // 生产环境下不支持hydration
-     }
+        __VUE_OPTIONS_API__: JSON.stringify(true), // 开启 vue3 的 options api
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false), // 关闭生产环境 vue3 的 devtools
+        __VUE_PROD_HYDRATION_MISSMATCH__: JSON.stringify(false), // 关闭生产环境 vue3 的 hydration 警告
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false)
     }),
     // 构造最终渲染的页面
     ...htmlWebpackPluginList,
