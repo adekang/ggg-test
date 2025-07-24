@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './page2.vue'
+import boot from '$pages/boot'
+import page2 from './page2.vue'
 
-createApp(App).mount('#root')
+
+const routes = []
+
+boot(page2,{routes})

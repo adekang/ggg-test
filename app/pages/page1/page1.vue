@@ -1,5 +1,6 @@
 <template>
   <h1>page1</h1>
+  <el-button>你好</el-button>
 </template>
 
 <script setup>
