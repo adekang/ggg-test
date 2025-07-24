@@ -70,7 +70,7 @@ module.exports = (app) => {
     }
 
     if (!valid) {
-      ctx.status = 400;
+      ctx.status = 200;
       ctx.body = {
         success: false,
         code: 442,

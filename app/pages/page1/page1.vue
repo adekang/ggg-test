@@ -4,9 +4,19 @@
 </template>
 
 <script setup>
-import utils from '$common/utils';
 import './index.css'
-console.log(utils.a);
+import curl from '$pages/common/curl'
+
+
+curl({
+  url: '/api/project/list',
+  method: 'get',
+  query:{
+    proj_key:"123"
+  }
+}).then(res => {
+  console.log("res::",res);
+})
 
 </script>
 
