@@ -9,7 +9,9 @@
     "prod": "set _ENV='prod' && node ./index.js",
     "build:dev": "node --max_old_space_size=8192 ./app/webpack/dev.js",
     "build:prod": "node ./app/webpack/prod.js",
-    "lint": "eslint --quiet --ext js,vue ."
+    "lint": "eslint --quiet --ext js,vue .",
+    "test": "set _ENV='local' && mocha 'test/**/*.test.js'",
+    "jest":"jest"
   },
   "dependencies": {
     "@babel/core": "^7.24.0",
@@ -17,7 +19,7 @@
     "axios": "^0.19.2",
     "echarts": "^5.5.0",
     "element-plus": "^2.3.7",
-    "generate-password": "^1.7.1",
+    "generate-password": "^1        .7.1",
     "glob": "^7.1.4",
     "jsonwebtoken": "^9.0.2",
     "knex": "^0.19.0",
@@ -47,6 +49,7 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.4.5",
+    "@jest/globals": "^29.7.0",
     "assert": "^2.0.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.4",
@@ -64,17 +67,18 @@
     "happypack": "^5.0.1",
     "html-webpack-inject-attributes-plugin": "^1.0.1",
     "html-webpack-plugin": "^5.5.3",
+    "jest": "^29.7.0",
     "less-loader": "^11.1.3",
     "mini-css-extract-plugin": "^2.7.6",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.3",
     "style-loader": "^0.14.1",
     "supertest": "^4.0.2",
     "terser-webpack-plugin": "^2.3.5",
     "url-loader": "^4.1.1",
     "validate-commit-msg": "^2.14.0",
+    "vue-eslint-parser": "8.2.0",
     "vue-loader": "^17.2.2",
     "vue-style-loader": "^4.1.2",
-    "vue-eslint-parser": "8.2.0",
     "webpack": "5.95.0",
     "webpack-dev-middleware": "^6.1.1",
     "webpack-hot-middleware": "^2.25.4",
@@ -85,5 +89,8 @@
       "pre-commit": "npm run lint",
       "commit-msg": "validate-commit-msg"
     }
+  },
+  "jest": {
+    "testMatch": ["<rootDir>/test/**/*.test.js"]
   }
 }
