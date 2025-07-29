@@ -26,8 +26,8 @@ module.exports = (app) => {
   app.use(app.middlewares.errorHandler);
 
   // 引入 API 签名校验中间件
-  // app.use(app.middlewares.apiSignVerify);
+  app.use(app.middlewares.apiSignVerify);
 
   // 引入 API 参数校验中间件
-  // app.use(app.middlewares.apiParamsVerify);
+  app.use(app.middlewares.apiParamsVerify);
 };
