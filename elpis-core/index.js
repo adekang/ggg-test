@@ -68,9 +68,11 @@ module.exports = {
     routerSchemaLoader(app);
     console.log("-- [start] routerSchemaLoader done --");
 
+    app.get
+
     try {
       const port = process.env.PORT || 3000;
-      const host = process.env.HOST || "0.0.0.0";
+      const host = process.env.HOST || "127.0.0.1";
       app.listen(port, host, () => {
         console.log(`Server started: http://${host}:${port}`);
       });
