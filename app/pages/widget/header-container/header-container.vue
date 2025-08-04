@@ -31,10 +31,10 @@
         >
           <!-- 插槽：设置区域 -->
           <slot name="setting-content" />
-          <component
+          <!-- <component
             :is="BussinessHeaderConfig.userPanel.component"
             v-if="BussinessHeaderConfig?.userPanel"
-          />
+          /> -->
         </el-row>
       </el-row>
     </el-header>
@@ -47,12 +47,15 @@
 
 <script setup>
 // import BussinessHeaderConfig from '@bussinessHeaderConfig'
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     default: ''
   }
 })
+
+console.log(props);
+
 </script>
 
 <style lang="less" scoped>

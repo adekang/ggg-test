@@ -11,6 +11,9 @@ importers:
       '@babel/core':
         specifier: ^7.24.0
         version: 7.28.0
+      '@element-plus/icons-vue':
+        specifier: ^2.3.1
+        version: 2.3.1(vue@3.5.17)
       ajv:
         specifier: ^6.10.2
         version: 6.12.6
@@ -24,7 +27,7 @@ importers:
         specifier: ^2.3.7
         version: 2.10.4(vue@3.5.17)
       generate-password:
-        specifier: ^1        .7.1
+        specifier: 1.7.1
         version: 1.7.1
       glob:
         specifier: ^7.1.4

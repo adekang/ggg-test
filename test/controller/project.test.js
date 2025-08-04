@@ -46,4 +46,10 @@ describe('测试 project 相关接口', () => {
       })
     })
   })
+
+  it('GET /api/project', async () => {
+    // 不存在的
+    const res = await request.get('/api/project?proj_key=taobao').set(getSignature())
+    expect(res.body.success).toBe(true)
+  })
 })
