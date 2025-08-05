@@ -1,15 +1,15 @@
 module.exports = {
   name: "抖音课堂",
   desc: "抖音课堂管理系统",
-  homePage:"",
+  homePage: "/todo?proj_key=douyin&key=video",
   menu: [
-        {
-      key:"video",
-      name:"视频管理(抖音课堂)",
+    {
+      key: "video",
+      name: "视频管理(抖音课堂)",
     },
     {
-      key:"user",
-      name:"课程管理(抖音课堂)",
+      key: "user",
+      name: "课程管理(抖音课堂)",
     },
     {
       key: "traffic",
