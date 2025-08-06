@@ -70,17 +70,6 @@ const handleMenuSelect = function (menuKey) {
         custom: customConfig?.path
     }
 
-    console.log("handleMenuSelect::", {
-        moduleType,
-        key,
-        customConfig,
-        pathMap,
-
-    });
-
-    console.log("router::", router.getRoutes());
-
-
     router.push({
         path: `/sider${pathMap[moduleType]}`,
         query: {

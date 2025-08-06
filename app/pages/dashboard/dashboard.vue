@@ -27,10 +27,6 @@ const projectStore = useProjectStore();
 const projName = ref("");
 
 onMounted(() => {
-    console.log("route.fullPath:", route.fullPath);
-    console.log("route.path:", route.path);
-    console.log("route.query:", route.query);
-
     getProjectList();
     getProjctConfig();
 });

@@ -1,55 +1,60 @@
 <template>
-    <HeaderContainer :title="projName">
-        <template #menu-content>
-            <el-menu
-                :default-active="activeKey"
-                :ellipsis="false"
-                mode="horizontal"
-                @select="handleSelect"
+  <HeaderContainer :title="projName">
+    <template #menu-content>
+      <el-menu
+        :default-active="activeKey"
+        :ellipsis="false"
+        mode="horizontal"
+        @select="handleSelect"
+      >
+        <template v-for="item in menuStore.menuList">
+          <sub-menu
+            v-if="item.subMenu && item.subMenu.length > 0"
+            :key="item.key"
+            :menu-item="item"
+          />
+          <el-menu-item
+            v-else
+            :index="item.key"
+          >
+            {{ item.name }}
+          </el-menu-item>
+        </template>
+      </el-menu>
+    </template>
+    <template #setting-content>
+      <el-dropdown @command="handleProjectCommand">
+        <span class="project-list">{{ projName }}
+          <el-icon
+            v-if="projectStore.projectList.length > 1"
+            class="el-icon--right"
+          >
+            <ArrowDown />
+          </el-icon>
+        </span>
+
+        <template
+          v-if="projectStore.projectList.length > 1"
+          #dropdown
+        >
+          <el-dropdown-menu>
+            <el-dropdown-item
+              v-for="item in projectStore.projectList"
+              :key="item.key"
+              :command="item.key"
+              :disabled="item.name === projName"
             >
-                <template v-for="item in menuStore.menuList">
-                    <sub-menu
-                        v-if="item.subMenu && item.subMenu.length > 0"
-                        :key="item.key"
-                        :menu-item="item"
-                    />
-                    <el-menu-item v-else :index="item.key">
-                        {{ item.name }}
-                    </el-menu-item>
-                </template>
-            </el-menu>
+              {{ item.name }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
         </template>
-        <template #setting-content>
-            <el-dropdown @command="handleProjectCommand">
-                <span class="project-list"
-                    >{{ projName }}
-                    <el-icon
-                        v-if="projectStore.projectList.length > 1"
-                        class="el-icon--right"
-                    >
-                        <ArrowDown />
-                    </el-icon>
-                </span>
+      </el-dropdown>
+    </template>
 
-                <template v-if="projectStore.projectList.length > 1" #dropdown>
-                    <el-dropdown-menu>
-                        <el-dropdown-item
-                            v-for="item in projectStore.projectList"
-                            :key="item.key"
-                            :command="item.key"
-                            :disabled="item.name === projName"
-                        >
-                            {{ item.name }}
-                        </el-dropdown-item>
-                    </el-dropdown-menu>
-                </template>
-            </el-dropdown>
-        </template>
-
-        <template #main-content>
-            <slot name="main-content" />
-        </template>
-    </HeaderContainer>
+    <template #main-content>
+      <slot name="main-content" />
+    </template>
+  </HeaderContainer>
 </template>
 
 <script setup>
@@ -72,9 +77,6 @@ const setActiveKey = function () {
         key: "key",
         value: route.query.key,
     });
-
-    console.log("setActiveKey", route.query.key, menuItem);
-
     activeKey.value = menuItem?.key;
 };
 
@@ -110,7 +112,6 @@ function handleSelect(menuKey) {
         key: "key",
         value: menuKey,
     });
-    console.log("handleSelect", menuItem);
 
     emit("menu-select", menuItem);
 }

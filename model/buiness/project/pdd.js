@@ -36,7 +36,7 @@ module.exports = {
             name:'信息查询',
             moduleType:'iframe',
             iframeConfig:{
-                path:'http://www.baidu.com'
+                path:'http://127.0.0.1:3000/view/dashboard#/sider/iframe?key=data&proj_key=pdd&sider_key=sider-search'
             }
           },
         ],
