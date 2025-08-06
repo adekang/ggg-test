@@ -23,21 +23,21 @@ module.exports = {
       siderConfig: {
         menu: [
           {
-            key: "analysis",
+            key: "coupanalysison",
             name: "电商罗盘",
             menuType: "module",
-            moduleType: "custom",
+            moduleType:'custom',
             customConfig: {
               path: "/todo",
             },
           },
           {
-            key: "sider-search",
-            name: "信息查询",
-            menuType: "iframe",
-            customConfig: {
-              path: "https://www.baidu.com",
-            },
+            key:'sider-search',
+            name:'信息查询',
+            moduleType:'iframe',
+            iframeConfig:{
+                path:'http://www.baidu.com'
+            }
           },
         ],
       },

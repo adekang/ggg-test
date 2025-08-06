@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import {first} from "lodash";
 
 export const useMenuStore = defineStore("menu", () => {
   // 项目列表
@@ -38,9 +39,24 @@ export const useMenuStore = defineStore("menu", () => {
     }
   };
 
+    /**
+   * 返回第一个菜单,如果是group的话，就返回第一个子group菜单
+   * @param mList 菜单列表
+   */
+  const findFirstMenuItem = function (mList = menuList.value) {
+    if (!mList || !first(mList)) return
+    let firstMenuItem = first(mList)
+    //group的情况
+    if (firstMenuItem?.subMenu) {
+      firstMenuItem = findFirstMenuItem(firstMenuItem.subMenu)
+    }
+    return firstMenuItem
+  }
+
   return {
     menuList,
     setMenuList,
     findMenuItem,
+    findFirstMenuItem
   };
 });

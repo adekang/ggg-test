@@ -1,11 +1,14 @@
 <template>
-    <el-config-provider :locale="zhCn">
-        <HeaderView :proj-name="projName" @menu-select="onMenuSelect">
-            <template #main-content>
-                <router-view></router-view>
-            </template>
-        </HeaderView>
-    </el-config-provider>
+  <el-config-provider :locale="zhCn">
+    <HeaderView
+      :proj-name="projName"
+      @menu-select="onMenuSelect"
+    >
+      <template #main-content>
+        <router-view />
+      </template>
+    </HeaderView>
+  </el-config-provider>
 </template>
 
 <script setup>
@@ -74,8 +77,6 @@ function onMenuSelect(menu) {
         ["schame", "/schame"],
         ["custom", customConfig?.path],
     ]);
-
-    console.log("router::", router.getRoutes());
 
     router.push({
         path: pathMap.get(moduleType),
