@@ -14,6 +14,11 @@ module.exports = {
     {
       key: "client",
       name: "客户管理(pdd)",
+      moduleType: "schema",
+      schemaConfig: {
+        api: "/api/client",
+        schema:""
+      }
     },
     {
       key: "data",
