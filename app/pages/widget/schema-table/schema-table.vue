@@ -229,7 +229,7 @@ const onPageSizesChange = async (value) => {
 }
 
 const onCurrentPageChange = async (value) => {
-  pageSize.value = value
+  currentPage.value = value
   await loadTableData()
 }
 

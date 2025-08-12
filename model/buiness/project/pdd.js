@@ -1,7 +1,7 @@
 module.exports = {
   model: "pdd",
   name: "拼多多",
-  homePage: "/todo?proj_key=pdd&key=product",
+  homePage: "/schema?proj_key=pdd&key=product",
   menu: [
     {
       key: "product",

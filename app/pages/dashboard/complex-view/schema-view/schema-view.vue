@@ -13,13 +13,13 @@
       @operate="onTableOperate"
     />
 
-    <component
+    <!-- <component
       :is="ComponentConfig[key]?.component"
       v-for="(item,key) in components"
       :key="key"
       ref="comListRef"
       @command="onComponentCommand"
-    />
+    /> -->
   </el-row>
 </template>
 
@@ -28,7 +28,7 @@ import {provide, ref} from "vue";
 import SearchPanel from './complex-view/search-panel/search-panel';
 import TablePanel from './complex-view/table-panel/table-panel';
 import {useSchema} from './hooks/schema';
-import ComponentConfig from "./components/component-config";
+// import ComponentConfig from "./components/component-config";
 
 const {
   api,

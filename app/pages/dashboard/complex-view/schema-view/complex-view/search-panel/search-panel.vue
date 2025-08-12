@@ -1,17 +1,17 @@
 <template>
   <el-card class="search-panel">
-    <schema-search-bar
+    <!-- <schema-search-bar
       :schema="searchSchema"
       @load="onLoad"
       @search="onSearch"
       @reset="onReset"
-    />
+    /> -->
   </el-card>
 </template>
 
 <script setup>
 import {inject} from "vue";
-import SchemaSearchBar from "$widget/schema-search-bar/schema-search-bar.vue";
+// import SchemaSearchBar from "$widget/schema-search-bar/schema-search-bar.vue";
 
 const {searchSchema} = inject('schemaViewData')
 
